@@ -8,15 +8,15 @@ users:
    user: username
    pass: password
    port: 22
-   key: /path/to/private_key
-   phrase: passphrase
+   key:
+   phrase:
    dir: /path/to/wordpress
 
  - name: name (as you want)
    host: bar.example.org
    user: username
-   pass: password
+   pass:
    port: 22
-   key:
-   phrase:
+   key: /path/to/private_key
+   phrase: passphrase
    dir: /path/to/wordpress
