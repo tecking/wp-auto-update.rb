@@ -1,0 +1,22 @@
+#
+# Configuration(s) for auto-update.rb
+#
+
+users:
+ - name: name (as you want)
+   host: foo.example.com
+   user: username
+   pass: password
+   port: 22
+   key: /path/to/private_key
+   phrase: passphrase
+   dir: /path/to/wordpress
+
+ - name: name (as you want)
+   host: bar.example.org
+   user: username
+   pass: password
+   port: 22
+   key:
+   phrase:
+   dir: /path/to/wordpress

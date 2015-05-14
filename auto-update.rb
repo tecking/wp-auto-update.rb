@@ -1,0 +1,73 @@
+#
+# auto-update.rb
+#
+# Copyright 2015 -, tecking
+# Licensed under the MIT License.
+#
+# NOTICE
+# It requires the Net::SSH package( https://github.com/net-ssh/net-ssh ).
+# Please install it before execution.
+# 
+
+#
+# Load module(s) and package(s).
+#
+
+require 'net/ssh'
+require 'yaml'
+
+
+#
+# Parse configuration file.
+#
+
+config = YAML.load_file('config.yml')
+users = config['users']
+
+
+#
+# Set up command(s).
+#
+
+bash =
+  'if [ -e ~/.bash_profile ]; then source ~/.bash_profile; fi'
+
+wp =
+  'wp db export && \
+   wp core update && \
+   wp plugin update --all && \
+   wp theme update --all'
+
+
+#
+# Execute update process.
+#
+
+users.each do |user|
+
+  option = {
+    :password => user['pass'],
+    :port => user['port'],
+    :paranoid => false,
+    :user_known_hosts_file => '/dev/null',
+    :keys => user['key'],
+    :passphrase => user['phrase']
+  }
+
+  stdout = ''
+  stderr = ''
+
+  puts "### #{user["name"]} ###"
+  
+  Net::SSH.start(user["host"], user["user"], option) do |ssh|
+    ssh.exec!("#{bash}; cd #{user["dir"]}; #{wp}; exit") do |channel, stream, data|
+      stdout << data if stream == :stdout
+      stderr << data if stream == :stderr
+    end
+  end
+
+  print "\e[32m"; puts stdout; print "\e[0m"
+  print "\e[31m"; puts stderr if stderr.length != 0; print "\e[0m"
+  puts
+
+end
