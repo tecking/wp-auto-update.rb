@@ -30,7 +30,7 @@ users = config['users']
 #
 
 bash =
-  'if [ -e ~/.bash_profile ]; then source ~/.bash_profile; fi'
+  '[ -e ~/.bash_profile ] && source ~/.bash_profile'
 
 wp =
   'wp db export && \
