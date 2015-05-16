@@ -57,9 +57,9 @@ users.each do |user|
   stdout = ''
   stderr = ''
 
-  puts "### #{user["name"]} ###"
+  puts "### #{user['name']} ###"
   
-  Net::SSH.start(user["host"], user["user"], option) do |ssh|
+  Net::SSH.start(user['host'], user['user'], option) do |ssh|
     ssh.exec!("#{bash}; cd #{user["dir"]}; #{wp}; exit") do |channel, stream, data|
       stdout << data if stream == :stdout
       stderr << data if stream == :stderr
