@@ -3,7 +3,7 @@
 #
 
 users:
- - name: name (as you want)
+ - name: site name (as you want)
    host: foo.example.com
    user: username
    pass: password
@@ -12,7 +12,7 @@ users:
    phrase:
    dir: /path/to/wordpress
 
- - name: name (as you want)
+ - name: site name (as you want)
    host: bar.example.org
    user: username
    pass:
