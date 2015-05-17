@@ -66,7 +66,7 @@ users.each do |user|
     end
   end
 
-  print "\e[32m"; puts stdout; print "\e[0m"
+  print "\e[32m"; puts stdout if stdout.length != 0; print "\e[0m"
   print "\e[31m"; puts stderr if stderr.length != 0; print "\e[0m"
   puts
 
