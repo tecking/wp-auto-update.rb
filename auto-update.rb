@@ -15,13 +15,22 @@
 
 require 'net/ssh'
 require 'yaml'
+require 'optparse'
 
 
 #
 # Parse configuration file.
 #
 
-config = YAML.load_file('config.yml')
+params = ARGV.getopts('f:')
+
+if params['f'].nil? then
+  config_file = 'config.yml'
+else
+  config_file = params['f']
+end
+
+config = YAML.load_file(config_file)
 users = config['users']
 
 
