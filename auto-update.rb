@@ -5,17 +5,24 @@
 # Licensed under the MIT License.
 #
 # NOTICE
-# It requires the Net::SSH package( https://github.com/net-ssh/net-ssh ).
-# Please install it before execution.
-# 
+# It requires the following gem packages.
+#   - Net::SSH ( https://github.com/net-ssh/net-ssh )
+#   - Mail
+# Please install them before execution.
+#
+
 
 #
-# Load module(s) and package(s).
+# Initialize
 #
 
 require 'net/ssh'
 require 'yaml'
 require 'optparse'
+require 'mail'
+require 'date'
+
+mail_body = ''
 
 
 #
@@ -31,6 +38,7 @@ else
 end
 
 config = YAML.load_file(config_file)
+admin = config['admin']
 users = config['users']
 
 
@@ -79,4 +87,28 @@ users.each do |user|
   print "\e[31m"; puts stderr if stderr.length != 0; print "\e[0m"
   puts
 
+  mail_body << "### #{user['name']} ###\n"
+  mail_body << stdout.force_encoding('utf-8')
+  mail_body << stderr.force_encoding('utf-8')
+  mail_body << "\n"
+
 end
+
+
+#
+# Send result mail.
+#
+
+date = Time.now
+
+mail = Mail.new do
+  from    admin['from']
+  to      admin['to']
+  subject date.strftime(admin['subject'])
+  body    mail_body
+end
+
+mail.charset = 'utf-8'
+mail.deliver
+
+puts 'Result mail has been delivered.'
