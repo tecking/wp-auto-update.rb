@@ -19,6 +19,7 @@
 require 'net/ssh'
 require 'yaml'
 require 'optparse'
+require 'open3'
 require 'mail'
 require 'date'
 
@@ -77,19 +78,23 @@ users.each do |user|
   puts "### #{user['name']} ###"
   
   Net::SSH.start(user['host'], user['user'], option) do |ssh|
-    ssh.exec!("#{bash}; cd #{user["dir"]}; #{wp}; exit") do |channel, stream, data|
+    ssh.exec!("#{bash}; cd #{user['dir']}; #{wp}; exit") do |channel, stream, data|
       stdout << data if stream == :stdout
       stderr << data if stream == :stderr
     end
   end
 
-  print "\e[32m"; puts stdout if stdout.length != 0; print "\e[0m"
-  print "\e[31m"; puts stderr if stderr.length != 0; print "\e[0m"
+  wget_out, wget_err = Open3.capture3("wget --spider -nv --timeout 60 -t 3 #{user['url']}")
+
+  puts stdout if stdout.length != 0
+  puts stderr if stderr.length != 0
+  puts wget_err
   puts
 
   mail_body << "### #{user['name']} ###\n"
   mail_body << stdout.force_encoding('utf-8')
   mail_body << stderr.force_encoding('utf-8')
+  mail_body << wget_err
   mail_body << "\n"
 
 end

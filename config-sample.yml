@@ -9,6 +9,7 @@ admin:
 
 users:
  - name: site name (as you want)
+   url: http://example.com
    host: foo.example.com
    user: username
    pass: password
@@ -18,6 +19,7 @@ users:
    dir: /path/to/wordpress
 
  - name: site name (as you want)
+   url: http://example.org
    host: bar.example.org
    user: username
    pass:
