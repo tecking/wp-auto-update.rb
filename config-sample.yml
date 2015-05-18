@@ -5,7 +5,7 @@
 admin:
   from: foo@example.com
   to: bar@example.com
-  subject: Result of auto-update.rb %Y-%m-%d %H:%M
+  subject: Check results of auto-update.rb %Y-%m-%d %H:%M
 
 users:
  - name: site name (as you want)

@@ -116,4 +116,4 @@ end
 mail.charset = 'utf-8'
 mail.deliver
 
-puts 'Result mail has been delivered.'
+puts 'Check results has been mailed.'
