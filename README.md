@@ -1,12 +1,12 @@
-# auto-update.rb
+# wp-auto-update.rb
 
 ## これは何?
 
 複数のリモートサーバをまたいで WordPress をアップデートする Ruby スクリプトです。設定ファイル（YAML 形式）に記述したリモートサーバに SSH でログインし、データベースをエクスポートした上で
 
-* WordPress コアファイル
-* プラグインファイル（[公式プラグインディレクトリ](https://wordpress.org/plugins/)にあるもの）
-* テーマファイル（[公式テーマディレクトリ](https://wordpress.org/themes/)にあるもの）
+* WordPress コア
+* プラグイン（[公式プラグインディレクトリ](https://wordpress.org/plugins/)にあるもの）
+* テーマ（[公式テーマディレクトリ](https://wordpress.org/themes/)にあるもの）
 
 を自動アップデートします。
 
@@ -16,6 +16,7 @@
 
 * Ruby
 * [Net::SSH ライブラリ](https://github.com/net-ssh/net-ssh)（ ``gem install net-ssh`` でインストール）
+* Mail ライブラリ（ ``gem install mail`` でインストール）
 
 ### リモート側
 
@@ -28,36 +29,53 @@
 ## 導入手順 
 
 1. ``git clone`` または ZIP ファイルをダウンロードし展開
-2. config-sample.yml を config.yml にリネーム
+2. config-sample.yml を config.yml （設定ファイル）にリネーム
 3. config.yml に設定を記述
-4. ``ruby auto-update.rb`` で本スクリプトを実行
+4. ``ruby wp-auto-update.rb`` で本スクリプトを実行
 
 ## config.yml の設定項目
+ 
+記述例は config-sample.yml をご参照ください。(*)は必須項目です。
 
-必要でない項目がある場合はキー（例 key: ）のみを残し、値を空白にしてください。  
-（記述例は config-sample.yml をご参照ください）
-
-* name  
+* name (*)  
 識別名（日本語も可）
-* host  
-リモートサーバのホスト名（IPアドレスも可）
-* user  
+* url (*)  
+サイトURL
+* host (*)  
+リモートサーバのホスト名（FQDN　IPアドレスも可）
+* user (*)  
 SSH ログインユーザー名
 * pass  
-SSH ログインパスワード
-* port  
+SSH ログインパスワード（公開鍵認証を使う場合は省略可）
+* port (*)  
 SSH 接続時のポート
 * key  
 公開鍵認証を使う場合の秘密鍵ファイルへのパス
 * phrase  
 秘密鍵のパスフレーズ
-* dir  
+* dir (*)  
 WordPress がインストールされているディレクトリ
+
+## 実行時のオプション 
+
+-f オプションで実行時の設定ファイルを指定できます。指定のないときは、同階層にある config.yml を設定ファイルとして読み込みます。
+
+### 例
+
+``ruby wp-auto-update.rb -f config.foobar.yml``
 
 ## 留意事項
 
 * At Your Own Risk にてお使いください
 * リモート側のレンタルサーバは『さくらのレンタルサーバ』『ヘテムル』での動作を確認しています
+
+## 変更履歴
+
+* 0.2.0（ 2015-05-19 ）
+ * 実行結果のメール送信機能追加
+ * アップデート処理終了時のサイト死活チェック機能追加
+* 0.1.0（ 2015-05-15 ）
+ * 公開
 
 ## ライセンス
 
