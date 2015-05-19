@@ -101,7 +101,7 @@ end
 
 
 #
-# Send result mail.
+# Send check results.
 #
 
 date = Time.now
