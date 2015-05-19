@@ -1,29 +1,44 @@
 #
-# Configuration(s) for auto-update.rb
+# Configurations for auto-update.rb
 #
+# [Settings] (*) = required
+# admin:
+#   from:    E-mail address that check results sender (*)
+#   to:      E-mail address that you want to receive check results (*)
+#   subject: Check results subject (also available ISO 8601 time format)
+# users:
+#  - name:   Identify name (*)
+#    url:    Site URL (*)
+#    host:   Hostname (FQDN, also available IP address) (*)
+#    user:   Username (*)
+#    pass:   Password (you can omit under SSH public key authentication)
+#    port:   SSH port (*)
+#    key:    Path to the private key file (it requires under SSH public key authentication)
+#    phrase: Passphrase (it requires under SSH public key authentication)
+#    dir:    Path to the directory WordPress is installed (*)
 
 admin:
-  from: foo@example.com
-  to: bar@example.com
+  from:    foo@example.com
+  to:      bar@example.com
   subject: Check results of auto-update.rb %Y-%m-%d %H:%M
 
 users:
- - name: site name (as you want)
-   url: http://example.com
-   host: foo.example.com
-   user: username
-   pass: password
-   port: 22
+ - name:   identify name (as you want)
+   url:    http://example.com
+   host:   foo.example.com
+   user:   username
+   pass:   password
+   port:   22
    key:
    phrase:
-   dir: /path/to/wordpress
+   dir:    /path/to/wordpress
 
- - name: site name (as you want)
-   url: http://example.org
-   host: bar.example.org
-   user: username
+ - name:   identify name (as you want)
+   url:    http://example.org
+   host:   bar.example.org
+   user:   username
    pass:
-   port: 22
-   key: /path/to/private_key
+   port:   22
+   key:    /path/to/private_key
    phrase: passphrase
-   dir: /path/to/wordpress
+   dir:    /path/to/wordpress
