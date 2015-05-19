@@ -5,7 +5,7 @@
 # admin:
 #   from:    E-mail address that check results sender (*)
 #   to:      E-mail address that you want to receive check results (*)
-#   subject: Check results subject (also available ISO 8601 time format)
+#   subject: Check results subject (also available ISO 8601 date format)
 # users:
 #  - name:   Identify name (*)
 #    url:    Site URL (*)
