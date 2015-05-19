@@ -114,6 +114,9 @@ mail = Mail.new do
 end
 
 mail.charset = 'utf-8'
+mail.delivery_method(:smtp,
+  enable_starttls_auto: false
+)
 mail.deliver
 
 puts 'Check results has been mailed.'
