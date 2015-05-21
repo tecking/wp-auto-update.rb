@@ -1,88 +1,101 @@
 # wp-auto-update.rb
 
-## これは何?
+## What's this?
 
-複数のリモートサーバをまたいで WordPress をアップデートする Ruby スクリプトです。設定ファイル（YAML 形式）に記述したリモートサーバに SSH でログインし、データベースをエクスポートした上で
+"wp-auto-update.rb" is the ruby script that updates WordPress website. Once you setup the configuration file (YAML format), it cruises multiple sites and updates WordPress automatically.
 
-* WordPress コア
-* プラグイン（[公式プラグインディレクトリ](https://wordpress.org/plugins/)にあるもの）
-* テーマ（[公式テーマディレクトリ](https://wordpress.org/themes/)にあるもの）
+## Features
 
-を自動アップデートします。
+It updates WordPress websites the following processes.
 
-## 動作要件
+1. Exports database
+2. Updates WordPress core files
+3. Updates all plugins (only distributed on [plugins directory](https://wordpress.org/plugins/))
+4. Updates all themes (only distributed on [themes directory](https://wordpress.org/themes/))
+5. Checks the website is whether in active or inactive
 
-### ローカル側
+## Requires
+
+### Local host
 
 * Ruby
-* [Net::SSH ライブラリ](https://github.com/net-ssh/net-ssh)（ ``gem install net-ssh`` でインストール）
-* Mail ライブラリ（ ``gem install mail`` でインストール）
+* [Net::SSH package](https://github.com/net-ssh/net-ssh) (apply with ``gem install net-ssh``)
+* Mail package (apply with ``gem install mail``)
 
-### リモート側
+### Remote host
 
-* SSH 接続でき（公開鍵認証も可）、[WP-CLI](http://wp-cli.org/) が動作するサーバ
+* SSH access is allowed (also possible SSH public key authentication)
+* [WP-CLI](http://wp-cli.org/)
 
-レンタルサーバに WP-CLI を導入するシェルスクリプトも公開していますので、あわせてご参照ください。
+#### Related script
 
-[wp-cli.setup.sh](https://github.com/tecking/wp-cli.setup.sh) - WP-CLI をレンタルサーバに導入するためのシェルスクリプト
+* [wp-cli.setup.sh](https://github.com/tecking/wp-cli.setup.sh)  
+The shell script to install "WP-CLI" into common hosting servers.
 
-## 導入手順 
+## Installation 
 
-1. ``git clone`` または ZIP ファイルをダウンロードし展開
-2. config-sample.yml を config.yml （設定ファイル）にリネーム
-3. config.yml に設定を記述
-4. ``ruby wp-auto-update.rb`` で本スクリプトを実行
+1. ``git clone`` or download and expand ZIP file
+2. Rename "config-sample.yml" to "config.yml" (is the configuration file)
+3. Setup "config.yml"
+4. Execute ``ruby wp-auto-update.rb``
 
-## config.yml の設定項目
+## Settings for the configuration file (config.yml)
  
-記述例は config-sample.yml をご参照ください。(*)は必須項目です。
+Please refer to "config-sample.yml". (*) = required.
 
-* from (*)  
-実行結果メールの送信元 E-mail アドレス
-* to (*)  
-実行結果メールのあて先 E-mail アドレス
+### admin section
+
+* from  
+E-mail address of check results sender (*)
+* to  
+E-mail address that you want to receive (*)
 * subject  
-実行結果メールの題名（ISO 8601 形式の日付文字列フォーマットが使えます）
-* name (*)  
-識別名（日本語も可）
-* url (*)  
-サイトURL
-* host (*)  
-リモートサーバのホスト名（FQDN　IPアドレスも可）
-* user (*)  
-SSH ログインユーザー名
+Check results subject (also possible ISO 8601 date format)
+
+### users section
+
+* name  
+Identify name (*)
+* url  
+Site URL (*)
+* host  
+Hostname (FQDN, also possible IP address) (*)
+* user  
+Username (*)
 * pass  
-SSH ログインパスワード（公開鍵認証を使う場合は省略可）
-* port (*)  
-SSH 接続時のポート
+Password (you can omit under SSH public key authentication)
+* port  
+SSH port (*)
 * key  
-公開鍵認証を使う場合の秘密鍵ファイルへのパス
+Path to the private key file (it requires under SSH public key authentication)
 * phrase  
-秘密鍵のパスフレーズ
-* dir (*)  
-WordPress がインストールされているディレクトリ
+Passphrase (it requires under SSH public key authentication)
+* dir  
+Path to the directory WordPress is installed (*)
 
-## 実行時のオプション 
+## Options
 
--f オプションで実行時の設定ファイルを指定できます。指定のないときは、同階層にある config.yml を設定ファイルとして読み込みます。
+With ``-f`` options, you can choose configuration files. If it is empty, the script reads "config.yml" in the same directory.
 
-### 例
+### Example
 
 ``ruby wp-auto-update.rb -f config.foobar.yml``
 
-## 留意事項
+## Notice
 
-* At Your Own Risk にてお使いください
-* リモート側のレンタルサーバは『さくらのレンタルサーバ』『ヘテムル』での動作を確認しています
+* Please use At Your Own Risk
+* Tested environment (hosting servers)
+ * [SAKURA Rental Server](http://www.sakura.ne.jp/) (Japan)
+ * [Heteml](http://heteml.jp) (Japan)
 
-## 変更履歴
+## Changelog
 
-* 0.2.0（ 2015-05-19 ）
- * 実行結果のメール送信機能追加
- * アップデート処理終了時のサイト死活チェック機能追加
-* 0.1.0（ 2015-05-15 ）
- * 公開
+* 0.2.0 (2015-05-19)
+ * Sending update results via E-mail
+ * Alive checker
+* 0.1.0 (2015-05-15)
+ * Opening to the public
 
-## ライセンス
+## License
 
-[MIT ライセンス](http://opensource.org/licenses/mit-license.php)で配布します。
+[MIT License](http://opensource.org/licenses/mit-license.php)

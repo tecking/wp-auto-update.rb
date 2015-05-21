@@ -5,11 +5,11 @@
 # admin:
 #   from:    E-mail address of check results sender (*)
 #   to:      E-mail address that you want to receive (*)
-#   subject: Check results subject (also available ISO 8601 date format)
+#   subject: Check results subject (also possible ISO 8601 date format)
 # users:
 #  - name:   Identify name (*)
 #    url:    Site URL (*)
-#    host:   Hostname (FQDN, also available IP address) (*)
+#    host:   Hostname (FQDN, also possible IP address) (*)
 #    user:   Username (*)
 #    pass:   Password (you can omit under SSH public key authentication)
 #    port:   SSH port (*)
