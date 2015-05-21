@@ -2,7 +2,7 @@
 
 ## What's this?
 
-"wp-auto-update.rb" is the ruby script that updates WordPress website. Once you setup the configuration file (YAML format), it cruises multiple sites and updates WordPress automatically.
+"wp-auto-update.rb" is a ruby script that updates WordPress website. Once you setup a configuration file (YAML format), it cruises multiple sites and updates WordPress automatically.
 
 ## Features
 
@@ -30,7 +30,7 @@ It updates WordPress websites the following processes.
 #### Related script
 
 * [wp-cli.setup.sh](https://github.com/tecking/wp-cli.setup.sh)  
-The shell script to install "WP-CLI" into common hosting servers.
+A shell script to install "WP-CLI" into common hosting servers.
 
 ## Installation 
 
