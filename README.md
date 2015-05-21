@@ -32,7 +32,7 @@ It updates WordPress websites the following processes.
 * [wp-cli.setup.sh](https://github.com/tecking/wp-cli.setup.sh)  
 A shell script to install "WP-CLI" into common hosting servers.
 
-## Installation 
+## Installation and usage
 
 1. ``git clone`` or download and expand ZIP file
 2. Rename "config-sample.yml" to "config.yml" (is the configuration file)
