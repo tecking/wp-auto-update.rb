@@ -75,7 +75,7 @@ Path to the directory WordPress is installed (*)
 
 ## Option
 
-With ``-f`` option, you can choose configuration files. If it is empty, the script reads "config.yml" in the same directory.
+Execute with ``-f`` option, you can choose any configuration files. If it is empty, the script reads "config.yml" in the same directory.
 
 ### Example
 
