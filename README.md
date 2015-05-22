@@ -73,9 +73,9 @@ Passphrase (it requires under SSH public key authentication)
 * dir  
 Path to the directory WordPress is installed (*)
 
-## Options
+## Option
 
-With ``-f`` options, you can choose configuration files. If it is empty, the script reads "config.yml" in the same directory.
+With ``-f`` option, you can choose configuration files. If it is empty, the script reads "config.yml" in the same directory.
 
 ### Example
 
