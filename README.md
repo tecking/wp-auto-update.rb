@@ -2,7 +2,7 @@
 
 ## What's this?
 
-"wp-auto-update.rb" is a ruby script to update WordPress websites. Once you setup a configuration file (YAML format), it cruises multiple sites and updates WordPress automatically.
+"wp-auto-update.rb" is a ruby script to update WordPress websites. Once you setup a configuration file (YAML format), it cruises multiple websites and updates WordPress automatically.
 
 ## Features
 
