@@ -90,6 +90,8 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 ## Changelog
 
+* 0.3.0 (2015-12-10)
+ * Added ``wp cli update`` command
 * 0.2.0 (2015-05-19)
  * Sending update results via E-mail
  * Alive checker

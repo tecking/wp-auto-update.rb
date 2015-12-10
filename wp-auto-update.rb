@@ -2,7 +2,7 @@
 # wp-auto-update.rb
 #
 # Copyright 2015 -, tecking
-# Version 0.2.0
+# Version 0.3.0
 #
 # Licensed under the MIT License.
 #
@@ -53,7 +53,8 @@ bash =
   '[ -e ~/.bash_profile ] && source ~/.bash_profile'
 
 wp =
-  'wp db export && \
+  'wp cli update && \
+   wp db export && \
    wp core update && \
    wp plugin update --all && \
    wp theme update --all'
