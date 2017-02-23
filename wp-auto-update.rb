@@ -2,9 +2,9 @@
 # wp-auto-update.rb
 #
 # Copyright 2015 -, tecking
-# Version 0.3.0
+# Version 0.4.0
 #
-# Licensed under the MIT License.
+# Licensed under GPL v2 or later.
 #
 # NOTICE
 # It requires the following gem packages.
@@ -54,7 +54,7 @@ bash =
 
 wp =
   'wp cli update && \
-   wp db export && \
+   wp db export `wp eval 'echo DB_NAME;'`.sql && \
    wp core update && \
    wp plugin update --all && \
    wp theme update --all'
