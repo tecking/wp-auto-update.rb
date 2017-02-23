@@ -103,4 +103,4 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 ## License
 
-[MIT License](http://opensource.org/licenses/mit-license.php)
+[GPL v2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
