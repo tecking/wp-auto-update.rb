@@ -54,7 +54,7 @@ bash =
 
 wp =
   'wp cli update && \
-   wp db export `wp eval 'echo DB_NAME;'`.sql && \
+   wp db export `wp eval "echo DB_NAME;"`.sql && \
    wp core update && \
    wp plugin update --all && \
    wp theme update --all'
