@@ -90,14 +90,17 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 ## Changelog
 
+* 0.5.0 (2017-03-17)
+ * Updated ``wp core update`` command
+ * Added ``wp core language`` command
 * 0.4.0 (2017-02-23)
- * Update ``wp db export`` command
- * Change license
+ * Updated ``wp db export`` command
+ * Changed license
 * 0.3.0 (2015-12-10)
  * Added ``wp cli update`` command
 * 0.2.0 (2015-05-19)
  * Sending update results via E-mail
- * Alive checker
+ * Added alive checker
 * 0.1.0 (2015-05-15)
  * Opening to the public
 

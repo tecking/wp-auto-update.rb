@@ -2,7 +2,7 @@
 # wp-auto-update.rb
 #
 # Copyright 2015 -, tecking
-# Version 0.4.0
+# Version 0.5.0
 #
 # Licensed under GPL v2 or later.
 #
@@ -54,11 +54,11 @@ bash =
 
 wp =
   'wp db export `wp eval "echo DB_NAME;"`.sql && \
-   wp core update && \
+   wp core update --force && \
    wp plugin update --all && \
    wp theme update --all && \
+   wp core language update && \
    wp cli update'
-
 
 #
 # Execute update process.
