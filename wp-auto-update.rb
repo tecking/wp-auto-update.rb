@@ -2,7 +2,7 @@
 # wp-auto-update.rb
 #
 # Copyright 2015 -, tecking
-# Version 0.5.0
+# Version 0.5.1
 #
 # Licensed under GPL v2 or later.
 #
@@ -58,7 +58,7 @@ wp =
    wp plugin update --all && \
    wp theme update --all && \
    wp core language update && \
-   wp cli update'
+   wp cli update --yes'
 
 #
 # Execute update process.

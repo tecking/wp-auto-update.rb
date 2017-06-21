@@ -90,6 +90,8 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 ## Changelog
 
+* 0.5.1 (2017-06-21)
+ * Fixed ``wp cli update`` command
 * 0.5.0 (2017-03-17)
  * Updated ``wp core update`` command
  * Added ``wp core language`` command
