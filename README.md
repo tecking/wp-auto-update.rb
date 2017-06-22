@@ -12,7 +12,8 @@ It updates WordPress websites the following processes.
 2. Updates WordPress core files
 3. Updates all plugins (only distributed on [plugins directory](https://wordpress.org/plugins/))
 4. Updates all themes (only distributed on [themes directory](https://wordpress.org/themes/))
-5. Checks the website is whether in active or inactive
+5. Updates WP-CLI
+6. Checks the website is whether in active or inactive
 
 ## Requires
 
@@ -85,26 +86,26 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 * Please use At Your Own Risk
 * Tested environment (hosting servers)
- * [SAKURA Rental Server](http://www.sakura.ne.jp/) (Japan)
- * [Heteml](http://heteml.jp) (Japan)
+  * [SAKURA Rental Server](http://www.sakura.ne.jp/) (Japan)
+  * [Heteml](http://heteml.jp) (Japan)
 
 ## Changelog
 
 * 0.5.1 (2017-06-21)
- * Fixed ``wp cli update`` command
+  * Fixed ``wp cli update`` command
 * 0.5.0 (2017-03-17)
- * Updated ``wp core update`` command
- * Added ``wp core language`` command
+  * Updated ``wp core update`` command
+  * Added ``wp core language`` command
 * 0.4.0 (2017-02-23)
- * Updated ``wp db export`` command
- * Changed license
+  * Updated ``wp db export`` command
+  * Changed license
 * 0.3.0 (2015-12-10)
- * Added ``wp cli update`` command
+  * Added ``wp cli update`` command
 * 0.2.0 (2015-05-19)
- * Sending update results via E-mail
- * Added alive checker
+  * Sending update results via E-mail
+  * Added alive checker
 * 0.1.0 (2015-05-15)
- * Opening to the public
+  * Opening to the public
 
 ## License
 
