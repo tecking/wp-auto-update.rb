@@ -86,8 +86,9 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 * Please use At Your Own Risk
 * Tested environment (hosting servers)
-  * [SAKURA Rental Server](http://www.sakura.ne.jp/) (Japan)
-  * [Heteml](http://heteml.jp) (Japan)
+  * [SAKURA Rental Server](https://www.sakura.ne.jp/) (Japan)
+  * [Heteml](https://heteml.jp/) (Japan)
+  * [LOLIPOP! Rentel Server](https://lolipop.jp/) (Japan)
 
 ## Changelog
 
