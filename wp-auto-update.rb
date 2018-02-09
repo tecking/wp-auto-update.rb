@@ -4,7 +4,7 @@
 # Copyright 2015 -, tecking
 # Version 0.5.1
 #
-# Licensed under GPL v2 or later.
+# Licensed under MIT License.
 #
 # NOTICE
 # It requires the following gem packages.

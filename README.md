@@ -92,6 +92,8 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 ## Changelog
 
+* 0.5.2 (2018-02-09)
+  * Changed GPL license to MIT
 * 0.5.1 (2017-06-21)
   * Fixed ``wp cli update`` command
 * 0.5.0 (2017-03-17)
@@ -99,7 +101,7 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
   * Added ``wp core language`` command
 * 0.4.0 (2017-02-23)
   * Updated ``wp db export`` command
-  * Changed license
+  * Changed MIT license to GPL
 * 0.3.0 (2015-12-10)
   * Added ``wp cli update`` command
 * 0.2.0 (2015-05-19)
@@ -110,4 +112,4 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 ## License
 
-[GPL v2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
+[MIT License](http://opensource.org/licenses/mit-license.php)
