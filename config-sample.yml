@@ -32,6 +32,7 @@ users:
    key:
    phrase:
    dir:    /path/to/wordpress
+   force:  true
 
  - name:   identify name (as you want)
    url:    http://example.org
@@ -42,3 +43,4 @@ users:
    key:    /path/to/private_key
    phrase: passphrase
    dir:    /path/to/wordpress
+   force:

@@ -54,11 +54,12 @@ bash =
 
 wp =
   'wp db export `wp eval "echo DB_NAME;"`.sql && \
-   wp core update --force && \
+   wp core update --minor && \
    wp plugin update --all && \
    wp theme update --all && \
    wp core language update && \
    wp cli update --yes'
+
 
 #
 # Execute update process.
@@ -74,7 +75,12 @@ users.each do |user|
     :keys => user['key'],
     :passphrase => user['phrase']
   }
-
+  
+  user['wp'] = wp.dup
+  if user['force']
+	  user['wp'].sub!(/wp core update --minor/, 'wp core update --force')
+  end
+  
   stdout = ''
   stderr = ''
 

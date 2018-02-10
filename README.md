@@ -73,6 +73,8 @@ Path to the private key file (it requires under SSH public key authentication)
 Passphrase (it requires under SSH public key authentication)
 * dir  
 Path to the directory WordPress is installed (*)
+* force  
+force updating (wp core update --force) either or not (boolean, default = false)
 
 ## Option
 
@@ -92,6 +94,9 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 ## Changelog
 
+* 0.6.0 (2018-02-10)
+  * Updated ``wp core update`` command
+  * Added ``force`` configuration
 * 0.5.2 (2018-02-09)
   * Changed GPL license to MIT
 * 0.5.1 (2017-06-21)
