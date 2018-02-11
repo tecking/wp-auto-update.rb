@@ -2,7 +2,7 @@
 # wp-auto-update.rb
 #
 # Copyright 2015 -, tecking
-# Version 0.6.0
+# Version 0.6.1
 #
 # Licensed under MIT License.
 #
@@ -87,7 +87,7 @@ users.each do |user|
   puts "### #{user['name']} ###"
   
   Net::SSH.start(user['host'], user['user'], option) do |ssh|
-    ssh.exec!("#{bash}; cd #{user['dir']}; #{wp}; exit") do |channel, stream, data|
+    ssh.exec!("#{bash}; cd #{user['dir']}; #{user['wp']}; exit") do |channel, stream, data|
       stdout << data if stream == :stdout
       stderr << data if stream == :stderr
     end
