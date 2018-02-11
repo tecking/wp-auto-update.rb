@@ -2,9 +2,9 @@
 # wp-auto-update.rb
 #
 # Copyright 2015 -, tecking
-# Version 0.6.1
+# Version 0.6.2
 #
-# Licensed under MIT License.
+# Licensed under the MIT License.
 #
 # NOTICE
 # It requires the following gem packages.
@@ -53,7 +53,7 @@ bash =
   '[ -e ~/.bash_profile ] && source ~/.bash_profile'
 
 wp =
-  'wp db export `wp eval "echo DB_NAME;"`.sql && \
+  'wp db export `wp eval "echo WP_CONTENT_DIR . DIRECTORY_SEPARATOR . DB_NAME;"`.sql && \
    wp core update --minor && \
    wp plugin update --all && \
    wp theme update --all && \
