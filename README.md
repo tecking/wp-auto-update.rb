@@ -19,14 +19,16 @@ It updates WordPress websites the following processes.
 
 ### Local host
 
+* SSH access is allowed
+* [WP-CLI](http://wp-cli.org/)
 * Ruby
-* [Net::SSH package](https://github.com/net-ssh/net-ssh) (apply with ``gem install net-ssh``)
-* Mail package (apply with ``gem install mail``)
+  * [Net::SSH package](https://github.com/net-ssh/net-ssh) (apply with ``gem install net-ssh``)
+  * Mail package (apply with ``gem install mail``)
 
 ### Remote host
 
 * SSH access is allowed (also possible SSH public key authentication)
-* [WP-CLI](http://wp-cli.org/)
+* WP-CLI
 
 #### Related script
 
