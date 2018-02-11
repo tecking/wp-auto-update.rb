@@ -94,6 +94,8 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 ## Changelog
 
+* 0.6.1 (2018-02-11)
+  * Fixed ``wp core update`` command
 * 0.6.0 (2018-02-10)
   * Updated ``wp core update`` command
   * Added ``force`` configuration
