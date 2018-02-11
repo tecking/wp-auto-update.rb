@@ -2,7 +2,7 @@
 # wp-auto-update.rb
 #
 # Copyright 2015 -, tecking
-# Version 0.5.1
+# Version 0.6.0
 #
 # Licensed under MIT License.
 #
