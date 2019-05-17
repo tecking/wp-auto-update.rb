@@ -76,7 +76,9 @@ Passphrase (it requires under SSH public key authentication)
 * dir  
 Path to the directory WordPress is installed (*)
 * force  
-force updating (wp core update --force) either or not (boolean, default = false)
+Force updating (wp core update --force) either or not (boolean, default = false)
+* command  
+Specify to run PHP or WP-CLI with full path
 
 ## Option
 
@@ -93,9 +95,13 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
   * [SAKURA Rental Server](https://www.sakura.ne.jp/) (Japan)
   * [Heteml](https://heteml.jp/) (Japan)
   * [LOLIPOP! Rentel Server](https://lolipop.jp/) (Japan)
+  * [XSERVER](https://www.xserver.ne.jp/) (Japan)
 
 ## Changelog
 
+* 0.6.3 (2019-05-17)
+  * Added ``command`` configuration
+	* Removed ``bash`` section
 * 0.6.2 (2018-02-11)
   * Fixed ``wp core update`` command
 * 0.6.1 (2018-02-11)

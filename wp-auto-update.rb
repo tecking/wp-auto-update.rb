@@ -2,7 +2,7 @@
 # wp-auto-update.rb
 #
 # Copyright 2015 -, tecking
-# Version 0.6.2
+# Version 0.6.3
 #
 # Licensed under the MIT License.
 #
@@ -49,9 +49,6 @@ users = config['users']
 # Set up command(s).
 #
 
-bash =
-  '[ -e ~/.bash_profile ] && source ~/.bash_profile'
-
 wp =
   'wp db export `wp eval "echo WP_CONTENT_DIR . DIRECTORY_SEPARATOR . DB_NAME;"`.sql && \
    wp core update --minor && \
@@ -78,16 +75,22 @@ users.each do |user|
   
   user['wp'] = wp.dup
   if user['force']
-	  user['wp'].sub!(/wp core update --minor/, 'wp core update --force')
+    user['wp'].sub!(/wp core update --minor/, 'wp core update --force')
   end
   
+  if user['command']
+    if user['command']['search'] && user['command']['replace']
+      user['wp'].gsub!(user['command']['search'], user['command']['replace'])
+    end
+  end
+
   stdout = ''
   stderr = ''
 
   puts "### #{user['name']} ###"
   
   Net::SSH.start(user['host'], user['user'], option) do |ssh|
-    ssh.exec!("#{bash}; cd #{user['dir']}; #{user['wp']}; exit") do |channel, stream, data|
+    ssh.exec!(cd #{user['dir']}; #{user['wp']}; exit") do |channel, stream, data|
       stdout << data if stream == :stdout
       stderr << data if stream == :stderr
     end

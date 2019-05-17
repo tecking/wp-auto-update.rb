@@ -33,6 +33,9 @@ users:
    phrase:
    dir:    /path/to/wordpress
    force:  true
+   command:
+    search:  'wp ' 
+    replace: '/path/to/php ~/path/to/wp '
 
  - name:   identify name (as you want)
    url:    http://example.org
