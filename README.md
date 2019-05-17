@@ -101,7 +101,7 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 * 0.6.3 (2019-05-17)
   * Added ``command`` configuration
-	* Removed ``bash`` section
+  * Removed ``bash`` section
 * 0.6.2 (2018-02-11)
   * Fixed ``wp core update`` command
 * 0.6.1 (2018-02-11)
