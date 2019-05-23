@@ -99,6 +99,8 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 ## Changelog
 
+* 0.6.4 (2019-05-23)
+  * Fixed ``bash`` section
 * 0.6.3 (2019-05-17)
   * Added ``command`` configuration
   * Removed ``bash`` section
