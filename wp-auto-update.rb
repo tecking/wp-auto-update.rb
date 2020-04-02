@@ -2,7 +2,7 @@
 # wp-auto-update.rb
 #
 # Copyright 2015 -, tecking
-# Version 0.6.4
+# Version 0.6.5
 #
 # Licensed under the MIT License.
 #
@@ -54,10 +54,12 @@ bash =
 
 wp =
   'wp db export `wp eval "echo WP_CONTENT_DIR . DIRECTORY_SEPARATOR . DB_NAME;"`.sql && \
-   wp core update --minor && \
+   wp core update --locale=ja && \
    wp plugin update --all && \
    wp theme update --all && \
-   wp core language update && \
+   wp language core update && \
+   wp language plugin update --all && \
+   wp language theme update --all && \
    wp cli update --yes'
 
 
@@ -70,7 +72,7 @@ users.each do |user|
   option = {
     :password => user['pass'],
     :port => user['port'],
-    :paranoid => false,
+    :verify_host_key => :never,
     :user_known_hosts_file => '/dev/null',
     :keys => user['key'],
     :passphrase => user['phrase']
@@ -85,6 +87,10 @@ users.each do |user|
     if user['command']['search'] && user['command']['replace']
       user['wp'].gsub!(user['command']['search'], user['command']['replace'])
     end
+  end
+
+  if !user['key']
+    option[:keys] = ''
   end
 
   stdout = ''
