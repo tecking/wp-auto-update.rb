@@ -99,6 +99,8 @@ Execute with ``-f`` option, you can choose any configuration files. If it is emp
 
 ## Changelog
 
+* 0.6.5 (2020-04-02)
+  * Updated ``wp language`` command
 * 0.6.4 (2019-05-23)
   * Fixed ``bash`` section
 * 0.6.3 (2019-05-17)
